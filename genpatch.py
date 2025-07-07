@@ -12,6 +12,7 @@ def download_file(url: str, output_path: Path):
     shutil.copyfile(temp_path, output_path)
     
 new_formula_path = Path.cwd() / "Formula" / "curl.rb"
+new_formula_path.parent.mkdir(parents=True, exist_ok=True)
 old_formula_path = Path.cwd() / "curl_upstream.rb"
 if not old_formula_path.is_file():
     download_file(formula_url, old_formula_path)
